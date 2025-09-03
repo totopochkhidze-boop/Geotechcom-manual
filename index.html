@@ -1,0 +1,59 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Egais Georgia — Industrial Marking</title>
+<link rel="stylesheet" href="/styles.css">
+</head><body>
+
+<header>
+  <div class="container nav">
+    <img src="/logo.jpg" alt="Egais Georgia" style="height:40px"/>
+    <a id="navAbout" href="/about.html">About Us</a>
+    <a id="navEgais" href="/egais-license.html">EGAIS License</a>
+    <div class="menu" style="position:relative">
+      <a id="navCons" href="#">Consumables ▾</a>
+      <div class="submenu" style="display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:10px;min-width:240px;box-shadow:0 10px 20px rgba(0,0,0,.08)">
+        <a id="navLabels" href="/consumables-labels.html" style="display:block;padding:10px 12px">Thermal Transfer Labels</a>
+        <a id="navRibbons" href="/consumables-ribbons.html" style="display:block;padding:10px 12px">Wax Ribbons</a>
+      </div>
+    </div>
+    <a id="navMark" href="/marking-equipment.html">Marking Equipment</a>
+    <div class="spacer"></div>
+    <div class="lang">
+      <button data-lang="en">EN</button>
+      <button data-lang="ka">KA</button>
+    </div>
+  </div>
+</header>
+<div class="brandbar"></div>
+
+<section class="hero"><div class="container">
+  <h1 id="heroH">Industrial Marking & Labeling Solutions</h1>
+  <p id="heroP">Printer-applicators, automatic labeling, and integrated verification.</p>
+  <p>
+    <a id="cta1" class="btn" href="/marking-equipment.html">Explore Products</a>
+    <a id="cta2" class="btn out" href="mailto:info@egais-georgia.com">Contact Us</a>
+  </p>
+</div></section>
+
+<footer class="container"><p id="foot">© Georgian Technology Company LTD — Egais Georgia</p></footer>
+
+<script>
+const LTEXT={
+  en:{navAbout:'About Us',navEgais:'EGAIS License',navCons:'Consumables ▾',navLabels:'Thermal Transfer Labels',navRibbons:'Wax Ribbons',navMark:'Marking Equipment',heroH:'Industrial Marking & Labeling Solutions',heroP:'Printer-applicators, automatic labeling, and integrated verification.',cta1:'Explore Products',cta2:'Contact Us',foot:'© Georgian Technology Company LTD — Egais Georgia'},
+  ka:{navAbout:'ჩვენ შესახებ',navEgais:'ეგაისის ლიცენზია',navCons:'სახარჯი მასალა ▾',navLabels:'თერმოტრანსფერული ეტიკეტები',navRibbons:'ვაქსის რიბონი',navMark:'მარკირების აღჭურვილობა',heroH:'ინდუსტრიული მარკირებისა და ეტიკეტირების გადაწყვეტილებები',heroP:'პრინტერ-აპლიკატორები, ავტომატური ეტიკეტირება და ვერიფიკაცია.',cta1:'პროდუქციის ნახვა',cta2:'დაგვიკავშირდით',foot:'© Georgian Technology Company LTD — Egais Georgia'}
+};
+function getLang(){const u=new URL(location.href),q=u.searchParams.get('lang');if(q){localStorage.setItem('lang',q);return q}return localStorage.getItem('lang')||'en'}
+function setLang(){
+  const t=LTEXT[getLang()]||LTEXT.en;
+  const ids=['navAbout','navEgais','navCons','navLabels','navRibbons','navMark','heroH','heroP','cta1','cta2','foot'];
+  ids.forEach(id=>{const el=document.getElementById(id); if(el&&t[id]) el.textContent=t[id]});
+  document.querySelectorAll('a[href$=".html"]').forEach(a=>{const u=new URL(a.href);u.searchParams.set('lang',getLang());a.href=u.pathname+u.search;});
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  setLang();
+  const m=document.querySelector('.menu'); if(m){m.addEventListener('mouseenter',()=>m.querySelector('.submenu").style.display='block'); m.addEventListener('mouseleave',()=>m.querySelector('.submenu').style.display='none');}
+  document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{const u=new URL(location.href);u.searchParams.set('lang',b.dataset.lang);location.href=u.toString();}));
+});
+</script>
+</body></html>
