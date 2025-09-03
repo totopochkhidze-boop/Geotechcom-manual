@@ -1,0 +1,85 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"     # where images are committed
+public_folder: "/assets/uploads"   # how the site refers to them
+
+locale: en
+
+collections:
+  # 1) About page (about.json)
+  - label: "About"
+    name: "about"
+    files:
+      - label: "About Page"
+        name: "about_page"
+        file: "about.json"
+        fields:
+          - { label: "Title (English)",  name: "title_en", widget: "string" }
+          - { label: "Title (Georgian)", name: "title_ka", widget: "string" }
+          - { label: "Body (English)",   name: "body_en",  widget: "markdown" }
+          - { label: "Body (Georgian)",  name: "body_ka",  widget: "markdown" }
+
+  # 2) EGAIS License page (egais.json)
+  - label: "EGAIS License"
+    name: "egais"
+    files:
+      - label: "EGAIS Content"
+        name: "egais_content"
+        file: "egais.json"
+        fields:
+          - { label: "Title (English)",  name: "title_en", widget: "string" }
+          - { label: "Title (Georgian)", name: "title_ka", widget: "string" }
+          - { label: "Intro (English)",  name: "intro_en", widget: "markdown" }
+          - { label: "Intro (Georgian)", name: "intro_ka", widget: "markdown" }
+
+  # 3) Consumables -> Thermal labels + Wax ribbons (two files)
+  - label: "Consumables"
+    name: "consumables"
+    files:
+      - label: "Thermal Transfer Labels"
+        name: "labels"
+        file: "consumables_labels.json"
+        fields:
+          - { label: "Title (English)",  name: "title_en", widget: "string" }
+          - { label: "Title (Georgian)", name: "title_ka", widget: "string" }
+          - label: "Sizes"
+            name: "sizes"
+            widget: "list"
+            fields:
+              - { label: "Size", name: "size", widget: "string" }
+              - { label: "Core", name: "core", widget: "string", required: false }
+          - { label: "Description (English)",  name: "desc_en", widget: "markdown", required: false }
+          - { label: "Description (Georgian)", name: "desc_ka", widget: "markdown", required: false }
+
+      - label: "Wax Ribbons"
+        name: "ribbons"
+        file: "consumables_ribbons.json"
+        fields:
+          - { label: "Title (English)",  name: "title_en", widget: "string" }
+          - { label: "Title (Georgian)", name: "title_ka", widget: "string" }
+          - label: "Widths"
+            name: "widths"
+            widget: "list"
+            field: { label: "Width", name: "width", widget: "string" }
+          - { label: "Description (English)",  name: "desc_en", widget: "markdown", required: false }
+          - { label: "Description (Georgian)", name: "desc_ka", widget: "markdown", required: false }
+
+  # 4) Marking equipment (list of products inside marking.json)
+  - label: "Marking Equipment"
+    name: "marking_equipment"
+    files:
+      - label: "Product List"
+        name: "product_list"
+        file: "marking.json"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - { label: "Title (EN)", name: "title_en", widget: "string" }
+              - { label: "Title (KA)", name: "title_ka", widget: "string" }
+              - { label: "Description (EN)", name: "desc_en", widget: "text" }
+              - { label: "Description (KA)", name: "desc_ka", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", required: false }
