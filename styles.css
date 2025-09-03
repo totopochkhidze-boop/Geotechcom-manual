@@ -1,0 +1,12 @@
+:root{--blue:#3b5bb3;--gold:#f2a51a;--border:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif}
+a{color:var(--blue);text-decoration:none}
+.container{width:min(1100px,94%);margin:0 auto}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:10}
+.nav{display:flex;gap:16px;align-items:center;padding:12px 0}.spacer{flex:1}
+.brandbar{height:3px;background:linear-gradient(90deg,var(--gold),var(--blue))}
+.hero{display:flex;align-items:center;min-height:60vh;background:linear-gradient(135deg,rgba(59,91,179,.65),rgba(242,165,26,.65)),linear-gradient(180deg,#0b1d3a,#1c2d4f);color:#fff}
+.hero .container{padding:40px 0}.btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 16px;border-radius:12px;margin-right:8px}
+.btn.out{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+.page-hero{height:200px;display:flex;align-items:center;color:#fff;background:linear-gradient(135deg,rgba(59,91,179,.65),rgba(242,165,26,.65)),linear-gradient(180deg,#1d2e58,#0c1e3c)}
+main{padding:28px 0 56px}footer{border-top:1px solid var(--border);padding:22px 0;color:#444}
